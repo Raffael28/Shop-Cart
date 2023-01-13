@@ -7,7 +7,7 @@ export function Header(props: { totalValue: number }) {
       <div style={{ display: "flex" }}>
         <p>
           <img style={{ width: "30px", height: "30px" }} src="cart.png"></img>{" "}
-          Valor Total:{props.totalValue.toFixed(2)}
+          {props.totalValue.toFixed(2)} R$
         </p>
       </div>
     </header>

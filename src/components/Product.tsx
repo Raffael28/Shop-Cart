@@ -1,7 +1,7 @@
 import React from "react";
 import { AddToCartButton } from "./AddToCartButton";
 
-export function Product(props: {
+export function ProductCard(props: {
   id: number;
   name: string;
   value: number;
