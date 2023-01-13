@@ -15,7 +15,11 @@ function App() {
   return (
     <div className="App">
       <Header selectedProduts={selectedProduts} products={products} />
-      <ProductList products={products}></ProductList>
+      <ProductList
+        products={products}
+        selectedProducts={selectedProduts}
+        setSelectedProducts={setSelectedProducts}
+      ></ProductList>
     </div>
   );
 }
