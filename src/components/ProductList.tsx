@@ -7,6 +7,7 @@ export function ProductList(props: { products: Product[] }) {
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       {props.products.map((p) => (
         <ProductCard
+          key={p.id}
           id={p.id}
           name={p.name}
           src={p.src}

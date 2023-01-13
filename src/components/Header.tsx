@@ -5,10 +5,13 @@ export function Header(props: {
   selectedProduts: number[];
   products: Product[];
 }) {
-  const totalValue = props.products
-    .filter((p) => props.selectedProduts.includes(p.id))
-    .map((p) => p.value)
-    .reduce((previous, current) => previous + current);
+  const totalValue =
+    props.selectedProduts.length > 0
+      ? props.products
+          .filter((p) => props.selectedProduts.includes(p.id))
+          .map((p) => p.value)
+          .reduce((previous, current) => previous + current)
+      : 0;
 
   return (
     <header className="App-header">
