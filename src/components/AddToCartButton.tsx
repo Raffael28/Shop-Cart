@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartShopContext } from "../context/CartShopContext";
 import { Product } from "../utils/types";
 
 export function AddToCartButton(props: {
   id: number;
   value: number;
   products: Product[];
-  selectedProducts: number[];
-  setSelectedProducts: React.Dispatch<React.SetStateAction<number[]>>;
 }) {
+  const { selectedProducts, setSelectedProducts } = useContext(CartShopContext);
   function addProduct() {
-    if (!props.selectedProducts.includes(props.id))
-      props.setSelectedProducts([...props.selectedProducts, props.id]);
+    setSelectedProducts([...selectedProducts, props.id]);
   }
-  console.log(props.selectedProducts);
   return <button onClick={addProduct}> Adicionar ao Carrinho</button>;
 }

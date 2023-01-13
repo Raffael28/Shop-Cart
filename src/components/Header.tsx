@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartShopContext from "../context/CartShopContext";
 import { Product } from "../utils/types";
 
-export function Header(props: {
-  selectedProduts: number[];
-  products: Product[];
-}) {
+export function Header(props: {}) {
+  const { selectedProducts, products } = useContext(CartShopContext);
+
   const totalValue =
-    props.selectedProduts.length > 0
-      ? props.products
-          .filter((p) => props.selectedProduts.includes(p.id))
-          .map((p) => p.value)
+    selectedProducts.length > 0
+      ? selectedProducts
+          .map((id) => products.find((p) => p.id == id)?.value || 0)
           .reduce((previous, current) => previous + current)
       : 0;
 

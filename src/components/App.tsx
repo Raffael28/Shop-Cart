@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CartShopContext } from "../context/CartShopContext";
 import "../css/App.css";
 import { Product } from "../utils/types";
 import { Header } from "./Header";
@@ -11,15 +12,15 @@ function App() {
     { id: 3, name: "Furadeira", value: 500, src: "drill-machine.png" },
     { id: 4, name: "Mesa", value: 100.54, src: "desk.png" },
   ];
-  const [selectedProduts, setSelectedProducts] = useState<number[]>([]);
+  const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
   return (
     <div className="App">
-      <Header selectedProduts={selectedProduts} products={products} />
-      <ProductList
-        products={products}
-        selectedProducts={selectedProduts}
-        setSelectedProducts={setSelectedProducts}
-      ></ProductList>
+      <CartShopContext.Provider
+        value={{ selectedProducts, setSelectedProducts, products }}
+      >
+        <Header />
+        <ProductList products={products}></ProductList>
+      </CartShopContext.Provider>
     </div>
   );
 }

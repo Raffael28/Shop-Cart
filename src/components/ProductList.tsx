@@ -1,12 +1,8 @@
 import React from "react";
 import { Product } from "../utils/types";
-import { ProductCard } from "./Product";
+import { ProductCard } from "./ProductCard";
 
-export function ProductList(props: {
-  products: Product[];
-  selectedProducts: number[];
-  setSelectedProducts: React.Dispatch<React.SetStateAction<number[]>>;
-}) {
+export function ProductList(props: { products: Product[] }) {
   return (
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       {props.products.map((p) => (
@@ -17,8 +13,6 @@ export function ProductList(props: {
           src={p.src}
           value={p.value}
           products={props.products}
-          selectedProducts={props.selectedProducts}
-          setSelectedProducts={props.setSelectedProducts}
         ></ProductCard>
       ))}
     </div>

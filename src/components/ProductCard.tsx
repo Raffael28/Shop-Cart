@@ -8,8 +8,6 @@ export function ProductCard(props: {
   value: number;
   src: string;
   products: Product[];
-  selectedProducts: number[];
-  setSelectedProducts: React.Dispatch<React.SetStateAction<number[]>>;
 }) {
   return (
     <div>
@@ -20,8 +18,6 @@ export function ProductCard(props: {
         id={props.id}
         value={props.value}
         products={props.products}
-        selectedProducts={props.selectedProducts}
-        setSelectedProducts={props.setSelectedProducts}
       />
     </div>
   );
