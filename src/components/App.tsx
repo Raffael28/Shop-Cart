@@ -11,10 +11,10 @@ function App() {
     { id: 3, name: "Furadeira", value: 500, src: "drill-machine.png" },
     { id: 4, name: "Mesa", value: 100.54, src: "desk.png" },
   ];
-  const [totalValue, setTotalValue] = useState<number>(0);
+  const [selectedProduts, setSelectedProducts] = useState<number[]>([]);
   return (
     <div className="App">
-      <Header totalValue={totalValue} />
+      <Header selectedProduts={selectedProduts} products={products} />
       <ProductList products={products}></ProductList>
     </div>
   );
